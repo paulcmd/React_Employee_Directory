@@ -39,25 +39,43 @@ const Main = () => {
             setOrderState("asc");
         }
     };
+    //Dynamically changes Employees names as they are typed
+    const handleInputChange = (e) => {
+        const UserInput = e.target.value;
+        const filteredEmployees = employeeState.filter(
+            (employee) =>
+                employee.name.first.toLowerCase().indexOf(UserInput.toLowerCase()) > -1
+        );
 
-    //filters looking for the value that matches the value entered by the user
-    const filteredEmployees = employeeState.filter((employee) =>
-        employee.name.first.toLowerCase().includes(searchState.toLowerCase())
+        setFilteredEmployees(filteredEmployees);
+    };
+
+    //when search button is clicked...
+    const handleSearch = (e) => {
+        e.preventDefault();
+        // if no input from user, ask to enter a name
+        if (!searchState) {
+            alert("Enter a name");
+        }
+
+        //filters looking for the value that matches the value entered by the user
+        const filteredEmployees = employeeState.filter((employee) =>
+            employee.name.first.toLowerCase().includes(searchState.toLowerCase())
+        );
+
+        setFilteredEmployees(filteredEmployees);
+    };
+
+    return (
+        <div>
+            <Header
+                employee={employeeState}
+                handleSearch={handleSearch}
+                handleInputChange={handleInputChange}
+            />
+            <TableData results={filteredEmployees} sortByName={sortByName} />
+        </div>
     );
-
-    setFilteredEmployees(filteredEmployees);
-};
-
-return (
-    <div>
-        <Header
-            employee={employeeState}
-            handleSearch={handleSearch}
-            handleInputChange={handleInputChange}
-        />
-        <TableData results={filteredEmployees} sortByName={sortByName} />
-    </div>
-);
 };
 
 export default Main;

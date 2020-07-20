@@ -22,3 +22,21 @@ function Header(props) {
                                 placeholder="Search by name"
                             />
                         </div>
+                        <div className="col m4">
+                            <button
+                                type="submit"
+                                value=""
+                                className=" btn z-depth-2 waves-effect  searchBtn"
+                                onClick={props.handleSearch}
+                            >
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+    );
+}
+
+export default Header;
