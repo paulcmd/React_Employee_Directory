@@ -39,3 +39,25 @@ const Main = () => {
             setOrderState("asc");
         }
     };
+
+    //filters looking for the value that matches the value entered by the user
+    const filteredEmployees = employeeState.filter((employee) =>
+        employee.name.first.toLowerCase().includes(searchState.toLowerCase())
+    );
+
+    setFilteredEmployees(filteredEmployees);
+};
+
+return (
+    <div>
+        <Header
+            employee={employeeState}
+            handleSearch={handleSearch}
+            handleInputChange={handleInputChange}
+        />
+        <TableData results={filteredEmployees} sortByName={sortByName} />
+    </div>
+);
+};
+
+export default Main;
