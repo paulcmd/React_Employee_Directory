@@ -34,7 +34,9 @@ function TableData(props) {
                     <td className="email">
                         <a href={result.email}>{result.email}</a>
                     </td>
-
+                    <td>
+                        <Moment format="MM/DD/YYYY">{result.dob.date}</Moment>
+                    </td>
                 </tr>
             ))}
             </tbody>
