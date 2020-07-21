@@ -25,7 +25,7 @@ None is required.
 ---
 
 ## Usage:
-To use this application, go to __[this link]( https://paulcmd.github.io/Budget_Tracker/)__. 
+To use this application, go to __[this link]( https://paulcmd.github.io/React_Employee_Directory/)__. 
 
 Upon opening the page in the browser, the page will automatically display data for 200 employees.
 
